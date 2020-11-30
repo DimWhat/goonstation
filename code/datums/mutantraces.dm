@@ -1914,6 +1914,15 @@
 					. = "<B>[mob]</B> BWAHCAWCKs!"
 					playsound(get_turf(mob), "sound/voice/screams/chicken_bawk.ogg", 50, 0, 0, mob.get_age_pitch())
 
+/datum/mutantrace/baal
+	name = "Baal"
+	icon_state = "baal_m" //placeholder till I figure out how to select male or female sprites
+	allow_fat = 1
+	human_compatible = 1
+	jerk = 0
+	var/permanent = 0
+	mutant_appearance_flags = (IS_MUTANT | HAS_NO_SKINTONE | HAS_NO_HAIR | HAS_NO_EYES | HAS_NO_HEAD | USES_STATIC_ICON)
+
 #undef OVERRIDE_ARM_L
 #undef OVERRIDE_ARM_R
 #undef OVERRIDE_LEG_R
