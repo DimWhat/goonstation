@@ -1118,3 +1118,18 @@ obj/trait/pilot
 			var/mob/living/carbon/human/H = owner
 			H.set_mutantrace(/datum/mutantrace/roach)
 		return
+
+/obj/trait/baal
+	name = "Baal (-1) \[Species\]"
+	cleanName = "Baal"
+	desc = "Testing if this works"
+	id = "baal"
+	points = -1
+	isPositive = 1
+	category = "species"
+
+	onAdd(var/mob/owner)
+		if(ishuman(owner))
+			var/mob/living/carbon/H = owner
+			H.set_mutantrace(/datum/mutantrace/baal)
+		return

@@ -1917,7 +1917,6 @@
 /datum/mutantrace/baal
 	name = "Baal"
 	icon_state = "baal_m" //placeholder till I figure out how to select male or female sprites
-	allow_fat = 1
 	human_compatible = 1
 	jerk = 0
 	var/permanent = 0
