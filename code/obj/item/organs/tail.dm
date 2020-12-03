@@ -266,3 +266,23 @@
 	organ_image_under_suit_1 = "roach_under_suit"
 	organ_image_under_suit_2 = null
 	organ_image_over_suit = "roach_over_suit"
+
+/obj/item/organ/tail/baal/male
+	name = "baal tail"
+	desc = "A long, thin tail."
+	icon_state = "tail-baal"
+	organ_image_icon = 'icons/mob/baal.dmi'
+	tail_num = TAIL_BAAL
+	organ_image_under_suit_1 = "baal_under_suit_m"
+	organ_image_under_suit_2 = null
+	organ_image_over_suit = "baal_over_suit_m"
+
+/obj/item/organ/tail/baal/female
+	name = "baal tail"
+	desc = "A long, thin tail."
+	icon_state = "tail-baal"
+	organ_image_icon = 'icons/mob/baal.dmi'
+	tail_num = TAIL_BAAL
+	organ_image_under_suit_1 = "baal_under_suit_f"
+	organ_image_under_suit_2 = null
+	organ_image_over_suit = "baal_over_suit_f"

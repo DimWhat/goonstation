@@ -1922,6 +1922,32 @@
 	var/permanent = 0
 	mutant_appearance_flags = (IS_MUTANT | HAS_NO_SKINTONE | HAS_NO_HAIR | HAS_NO_EYES | HAS_NO_HEAD | USES_STATIC_ICON)
 
+/datum/mutantrace/baal // all baal are derrived from cats. this is cannon
+	name = "Baal"
+	icon_state = "baal_m"
+	jerk = 1
+	override_attack = 0
+	mutant_organs = list("tail" = /obj/item/organ/tail/baal)
+	mutant_folder = 'icons/mob/baal.dmi'
+	special_head = HEAD_BAAL
+	r_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/right
+	l_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/left
+	r_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/right
+	l_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/left
+	mutant_appearance_flags = (IS_MUTANT | HAS_NO_SKINTONE | HAS_NO_HAIR | HAS_NO_EYES | BUILT_FROM_PIECES)
+
+	New(mob/living/carbon/human/M)
+		. = ..()
+		if(ishuman(M))
+			M.mob_flags |= SHOULD_HAVE_A_TAIL
+
+
+	disposing()
+		if(ishuman(mob))
+			mob.mob_flags &= ~SHOULD_HAVE_A_TAIL
+		. = ..()
+
+
 #undef OVERRIDE_ARM_L
 #undef OVERRIDE_ARM_R
 #undef OVERRIDE_LEG_R

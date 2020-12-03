@@ -1918,3 +1918,50 @@ obj/item/parts/human_parts/arm/right/reliquary
 		. = ..()
 		if(prob(10))
 			src.desc = "A chicken's right drumstick."
+
+//// BAAL LIMBS ////
+///// PARENT /////
+
+/obj/item/parts/human_parts/arm/mutant/baal
+	icon = 'icons/mob/baal.dmi'
+	partIcon = 'icons/mob/baal.dmi'
+
+/obj/item/parts/human_parts/leg/mutant/baal
+	icon = 'icons/mob/baal.dmi'
+	partIcon = 'icons/mob/baal.dmi'
+
+
+//// LIMBS ////
+/obj/item/parts/human_parts/arm/mutant/baal/left
+	name = "left baal arm"
+	desc = "A baal's left arm."
+	icon_state = "arm_left"
+	slot = "l_arm"
+	side = "left"
+	handlistPart = "hand_left"
+
+/obj/item/parts/human_parts/arm/mutant/baal/right
+	name = "right baal arm"
+	desc = "A baal's right arm."
+	icon_state = "arm_right"
+	slot = "r_arm"
+	side = "right"
+	handlistPart = "hand_right"
+
+/obj/item/parts/human_parts/leg/mutant/baal/left
+	name = "left baal leg"
+	desc = "A baal's left leg."
+	icon_state = "leg_left"
+	slot = "l_leg"
+	side = "left"
+	partlistPart = "foot_left"
+	step_image_state = "footprintsL"
+
+/obj/item/parts/human_parts/leg/mutant/baal/right
+	name = "right baal leg"
+	desc = "A baal's right leg."
+	icon_state = "leg_right"
+	slot = "r_leg"
+	side = "right"
+	partlistPart = "foot_right"
+	step_image_state = "footprintsR"
