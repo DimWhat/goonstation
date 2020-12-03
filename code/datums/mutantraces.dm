@@ -2064,7 +2064,7 @@
 	l_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/left
 	r_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/right
 	l_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/left
-	mutant_appearance_flags = ( HAS_NO_SKINTONE | HAS_SPECIAL_HAIR | HAS_NO_EYES | BUILT_FROM_PIECES)
+	mutant_appearance_flags = ( HAS_NO_SKINTONE | HAS_SPECIAL_HAIR | HAS_NO_EYES | HEAD_HAS_OWN_COLORS | BUILT_FROM_PIECES)
 
 	New(mob/living/carbon/human/M)
 		. = ..()
