@@ -182,6 +182,20 @@
 				src.original_fprints = src.original_holder.bioHolder.uid_hash
 		return ..()
 
+	attach(mob/living/carbon/human/attachee, mob/attacher, both_legs)
+		if (..()) // A successful attachment
+			if(ismob(attachee) && attachee?.bioHolder) // Whose limb is this?
+				if(isnull(src.original_holder)) // Limb never had an original owner?
+					src.original_holder = attachee // Now it does
+					if (src.original_holder?.bioHolder)
+						src.original_DNA = src.original_holder.bioHolder.Uid
+						src.original_fprints = src.original_holder.bioHolder.uid_hash
+					return
+				if(src.original_DNA != attachee.bioHolder.Uid) // Limb isnt ours
+					src.limb_is_transplanted = TRUE
+				else // Maybe we got our old limb back?
+					src.limb_is_transplanted = FALSE
+
 	/// Determines what the limb's skin tone should be
 	proc/colorize_limb_icon()
 		if (!src.skintoned) return // No colorizing things that have their own baked in colors! Also they dont need a bloody stump overlaid
@@ -200,13 +214,6 @@
 		if (has_aH)
 			if (AHLIMB.mob_appearance_flags & HAS_NO_SKINTONE)
 				skin_tone = "#FFFFFF"
-			else if (AHLIMB.mob_appearance_flags & HAS_SPECIAL_SKINTONE)
-				if (AHLIMB.mob_color_flags & SKINTONE_USES_PREF_COLOR_1)
-					skin_tone = AHLIMB.customization_first_color
-				else if (AHLIMB.mob_color_flags & SKINTONE_USES_PREF_COLOR_2)
-					skin_tone = AHLIMB.customization_second_color
-				else if (AHLIMB.mob_color_flags & SKINTONE_USES_PREF_COLOR_3)
-					skin_tone = AHLIMB.customization_third_color
 			else
 				skin_tone = AHLIMB.s_tone
 		else	// This is going to look *weird* if these somehow spawn on a mob
@@ -390,6 +397,8 @@
 	var/special_icons = 'icons/mob/human.dmi'
 	var/original_flags = 0
 	var/image/handimage = 0
+	/// No more yee eating csaber arms
+	limb_is_unnatural = TRUE
 
 	New(new_holder, var/obj/item/I)
 		..()
@@ -536,6 +545,8 @@
 	var/original_flags = 0
 	var/image/handimage = 0
 	var/special_icons = 'icons/mob/human.dmi'
+	/// Also, item arms are supposedly junk jammed into a severed limb's socket
+	limb_is_unnatural = TRUE
 
 	New(new_holder, var/obj/item/I)
 		..()
@@ -658,6 +669,8 @@
 	limb_type = /datum/limb/wendigo
 	handlistPart = "l_hand_wendigo"
 	show_on_examine = 1
+	/// Wendigeese are pretty unnatural, and most people'd miss em if they suddenly turned into a lizard arm
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -683,6 +696,8 @@
 	limb_type = /datum/limb/wendigo
 	handlistPart = "r_hand_wendigo"
 	show_on_examine = 1
+	/// If you went through the trouble to get yourself a wendy arm, you should keep it no matter how inhuman you become
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -708,6 +723,7 @@
 	limb_type = /datum/limb/hot
 	handlistPart = "hand_left"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -728,6 +744,7 @@
 	limb_type = /datum/limb/hot
 	handlistPart = "hand_right"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -748,6 +765,7 @@
 	limb_type = /datum/limb/bear
 	handlistPart = "l_hand_bear"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -775,6 +793,7 @@
 	limb_type = /datum/limb/bear
 	handlistPart = "r_hand_bear"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -801,6 +820,8 @@
 	var/name_thing = "plant"
 	show_on_examine = 1
 	easy_attach = 1
+	/// Plants are pretty unnatural
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -826,6 +847,7 @@
 	var/name_thing = "plant"
 	show_on_examine = 1
 	easy_attach = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -851,6 +873,7 @@
 	var/name_thing = "plant"
 	show_on_examine = 1
 	easy_attach = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -876,6 +899,7 @@
 	var/name_thing = "plant"
 	show_on_examine = 1
 	easy_attach = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -927,6 +951,8 @@
 	limb_type = /datum/limb/abomination
 	handlistPart = "l_hand_abomination"
 	show_on_examine = 1
+	/// About as unnatural as it gets
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -952,6 +978,7 @@
 	limb_type = /datum/limb/abomination
 	handlistPart = "r_hand_abomination"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -978,6 +1005,8 @@
 	streak_descriptor = "undeadly"
 	override_attack_hand = 1
 	show_on_examine = 1
+	/// Supernatural if not abnormally gross
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -997,6 +1026,7 @@
 	streak_descriptor = "undeadly"
 	override_attack_hand = 1
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1016,6 +1046,7 @@
 	limb_type = /datum/limb/hunter
 	handlistPart = "l_hand_hunter"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1041,6 +1072,7 @@
 	limb_type = /datum/limb/hunter
 	handlistPart = "r_hand_hunter"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1067,6 +1099,7 @@
 	handlistPart = "l_hand_wendigo"
 	siemens_coefficient = 0
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1093,6 +1126,7 @@
 	handlistPart = "r_hand_wendigo"
 	siemens_coefficient = 0
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1117,6 +1151,7 @@ obj/item/parts/human_parts/arm/right/stone
 	handlistPart = "r_hand_stone"
 	var/name_thing = "stone"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1141,6 +1176,7 @@ obj/item/parts/human_parts/arm/right/stone
 	handlistPart = "l_hand_stone"
 	var/name_thing = "stone"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1165,6 +1201,7 @@ obj/item/parts/human_parts/arm/right/stone
 	partlistPart = "l_foot_stone"
 	var/name_thing = "stone"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1189,6 +1226,7 @@ obj/item/parts/human_parts/arm/right/stone
 	partlistPart = "r_foot_stone"
 	var/name_thing = "stone"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
@@ -1214,6 +1252,7 @@ obj/item/parts/human_parts/arm/right/reliquary
 	handlistPart = "hand_right"
 	var/name_thing = "reli"
 	show_on_examine = 1
+	limb_is_unnatural = TRUE
 
 	New(var/atom/holder)
 		if (holder != null)
