@@ -12,8 +12,9 @@
 #define HEAD_FROG 9
 #define HEAD_SHELTER 10
 #define HEAD_VAMPZOMBIE 11
-#define HEAD_RELI 12
-#define HEAD_CHICKEN 13
+#define HEAD_CHICKEN 12
+#define HEAD_BAAL 13
+#define HEAD_BAAL_FEMALE 1300
 
 //tail defines
 #define TAIL_NONE 0
@@ -25,6 +26,8 @@
 #define TAIL_SEAMONKEY 6
 #define TAIL_CAT 7
 #define TAIL_ROACH 8
+#define TAIL_BAAL 9
+#define TAIL_BAAL_FEMALE 10
 
 /// appearanceholder color vars. Tells mutant races to stick this color into the specified special hair color slot
 #define CUST_1 1

@@ -456,13 +456,18 @@
 					src.organ_name = "zombie head"
 					src.desc = "Deader than undead."
 
-				if(HEAD_RELI)
-					src.organ_name = "synthetic head"
-					src.desc = "Half stone, half tofu, all unfinished."
-
 				if(HEAD_CHICKEN)
 					src.organ_name = "chicken head"
 					src.desc = "Mike would be proud."
+
+				if(HEAD_BAAL)
+					src.organ_name = "baal head"
+					src.desc = "Well, damn."
+
+				if(HEAD_BAAL_FEMALE)
+					src.organ_name = "baal head"
+					src.desc = "Well, damn."
+
 
 		src.update_icon(makeshitup = 0)	// so our head actually looks like the thing its supposed to be
 		// though if our head's a transplant, lets run it anyway, in case their hair changed or something

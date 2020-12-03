@@ -2041,27 +2041,30 @@
 					. = "<B>[mob]</B> BWAHCAWCKs!"
 					playsound(get_turf(mob), "sound/voice/screams/chicken_bawk.ogg", 50, 0, 0, mob.get_age_pitch())
 
-/datum/mutantrace/baal
-	name = "Baal"
-	icon_state = "baal_m" //placeholder till I figure out how to select male or female sprites
-	human_compatible = 1
-	jerk = 0
-	var/permanent = 0
-	mutant_appearance_flags = (IS_MUTANT | HAS_NO_SKINTONE | HAS_NO_HAIR | HAS_NO_EYES | HAS_NO_HEAD | USES_STATIC_ICON)
 
-/datum/mutantrace/baal // all baal are derrived from cats. this is cannon
-	name = "Baal"
-	icon_state = "baal_m"
-	jerk = 1
+/datum/mutantrace/baal // all baal are derrived from cats. this is canon
+	name = "baal"
+	icon_state = "baal"
+	jerk = 0
 	override_attack = 0
-	mutant_organs = list("tail" = /obj/item/organ/tail/baal)
+	mutant_organs = list("tail" = /obj/item/organ/tail/baal/male)
+	mutant_organs_f = list("tail" = /obj/item/organ/tail/baal/female)
 	mutant_folder = 'icons/mob/baal.dmi'
 	special_head = HEAD_BAAL
+	special_head_state = "head_m"
+	special_head_f = HEAD_BAAL_FEMALE
+	special_head_state_f = "head_f"
+	special_hair_1_icon = 'icons/mob/baal.dmi'
+	special_hair_1_state = "horns_m"
+	special_hair_1_color = null
+	special_hair_1_icon_f = 'icons/mob/baal.dmi'
+	special_hair_1_state_f = "horns_f"
+	special_hair_1_color_f = null
 	r_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/right
 	l_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/left
 	r_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/right
 	l_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/left
-	mutant_appearance_flags = (IS_MUTANT | HAS_NO_SKINTONE | HAS_NO_HAIR | HAS_NO_EYES | BUILT_FROM_PIECES)
+	mutant_appearance_flags = ( HAS_NO_SKINTONE | HAS_SPECIAL_HAIR | HAS_NO_EYES | BUILT_FROM_PIECES)
 
 	New(mob/living/carbon/human/M)
 		. = ..()

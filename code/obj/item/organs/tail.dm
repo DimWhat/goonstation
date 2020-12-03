@@ -36,7 +36,7 @@
 	proc/colorize_tail(var/datum/appearanceHolder/AHL)
 		if(src.colorful)
 			if (AHL && istype(AHL, /datum/appearanceHolder))
-				src.organ_color_1 = AHL.s_tone
+				src.organ_color_1 = AHL.customization_first_color
 				src.organ_color_2 = AHL.customization_second_color
 				src.donor_AH = AHL
 			else if (src.donor && ishuman(src.donor))	// Get the colors here so they dont change later, ie reattached on someone else
@@ -241,7 +241,7 @@
 	name = "seamonkey tail"
 	desc = "A long, pink tail."
 	icon_state = "tail-seamonkey"
-	organ_image_icon = 'icons/mob/seamonkey.dmi'
+	organ_image_icon = 'icons/mob/monkey.dmi'
 	tail_num = TAIL_SEAMONKEY
 	organ_image_under_suit_1 = "seamonkey_under_suit"
 	organ_image_under_suit_2 = null
@@ -282,7 +282,7 @@
 	desc = "A long, thin tail."
 	icon_state = "tail-baal"
 	organ_image_icon = 'icons/mob/baal.dmi'
-	tail_num = TAIL_BAAL
+	tail_num = TAIL_BAAL_FEMALE
 	organ_image_under_suit_1 = "baal_under_suit_f"
 	organ_image_under_suit_2 = null
 	organ_image_over_suit = "baal_over_suit_f"
