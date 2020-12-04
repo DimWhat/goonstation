@@ -3027,6 +3027,13 @@ datum
 								boutput(O, "<span class='alert'>The blood reacts, attempting to escape the heat before sizzling away!</span>")
 
 				holder.del_reagent(id)
+		blood/bloodbaal
+			id = "bloodbaal"
+			description = "A black substance found primarily in Baal."
+			fluid_r = 0
+			fluid_b = 0
+			fluid_g = 0
+			hygiene_value = -3
 
 
 		vomit

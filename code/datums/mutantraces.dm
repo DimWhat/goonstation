@@ -2069,11 +2069,15 @@
 	New(mob/living/carbon/human/M)
 		. = ..()
 		if(ishuman(M))
-			M.mob_flags |= SHOULD_HAVE_A_TAIL
+			mob.mob_flags |= SHOULD_HAVE_A_TAIL
+			mob.blood_id = "bloodbaal"
+			mob.blood_color = "#000000"  //I had a rough time with this one. didn't realize that # symbol is required
 
 
 	disposing()
 		if(ishuman(mob))
+			mob.blood_id = initial(mob.blood_id)
+			mob.blood_color = initial(mob.blood_color)
 			mob.mob_flags &= ~SHOULD_HAVE_A_TAIL
 		. = ..()
 
