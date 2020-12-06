@@ -109,3 +109,11 @@
 /obj/machinery/bot/skullbot/ominous
 	name = "ominous skullbot"
 	icon_state = "skullbot-ominous"
+
+/obj/machinery/bot/skullbot/baal_m
+	name = "horned skullbot"
+	icon_state = "skullbot-baal_m"
+
+/obj/machinery/bot/skullbot/baal_f
+	name = "horned skullbot"
+	icon_state = "skullbot-baal_f"

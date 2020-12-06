@@ -750,6 +750,12 @@
 			else if (Skull.icon_state == "skull_gold" || istype(Skull, /obj/item/skull/gold))
 				B = new /obj/machinery/bot/skullbot/gold(get_turf(user))
 
+			else if (Skull.icon_state == "skull_baal_m" || istype(Skull, /obj/item/skull/baal_m))
+				B = new /obj/machinery/bot/skullbot/baal_m(get_turf(user))
+
+			else if (Skull.icon_state == "skull_baal_f" || istype(Skull, /obj/item/skull/baal_f))
+				B = new /obj/machinery/bot/skullbot/baal_f(get_turf(user))
+
 			else
 				B = new /obj/machinery/bot/skullbot(get_turf(user))
 

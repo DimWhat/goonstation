@@ -15,7 +15,8 @@
 #define isliving(x) istype(x, /mob/living)
 
 #define iscarbon(x) istype(x, /mob/living/carbon)
-#define ismonkey(x) (istype(x, /mob/living/carbon/human) && istype(x:mutantrace, /datum/mutantrace/monkey))
+#define isbaal(x) (istype(x, /mob/living/carbon/human) && istype(x:mutantrace, /datum/mutantrace/monkey))
+#define ismonkey(x) (istype(x, /mob/living/carbon/human) && istype(x:mutantrace, /datum/mutantrace/baal))
 #define isnpcmonkey(x) (istype(x,/mob/living/carbon/human/npc/monkey) && istype(x:mutantrace, /datum/mutantrace/monkey))
 #define ishuman(x) istype(x, /mob/living/carbon/human)
 #define iscritter(x) istype(x, /obj/critter)

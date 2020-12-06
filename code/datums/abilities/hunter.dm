@@ -146,6 +146,9 @@
 								if (isnpcmonkey(H))
 									skull_value = 0
 									skull_desc = "A meaningless trophy from a lab monkey. You feel disgusted to even look at it."
+								if (isbaal(H))
+									skull_value = 2
+									skull_desc = "A trophy taken from a rare creature."
 
 						// Everything's still default, so check for assigned_role. Could be a lizard captain or whatever.
 						if (isnull(skull_type) && skull_value == default_skull_value && skull_desc == default_skull_desc)

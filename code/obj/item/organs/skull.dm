@@ -82,6 +82,12 @@
 			else if (src.icon_state == "skull_gold" || istype(src, /obj/item/skull/gold))
 				B = new /obj/machinery/bot/skullbot/gold(get_turf(user))
 
+			else if (src.icon_state == "skull_baal_m" || istype(src, /obj/item/skull/baal_m))
+				B = new /obj/machinery/bot/skullbot/baal_m(get_turf(user))
+
+			else if (src.icon_state == "skull_baal_f" || istype(src, /obj/item/skull/baal_f))
+				B = new /obj/machinery/bot/skullbot/baal_f(get_turf(user))
+
 			else
 				B = new /obj/machinery/bot/skullbot(get_turf(user))
 
@@ -221,3 +227,15 @@
 	desc = "Fuck that's creepy."
 	icon_state = "skull_noface"
 	value = -1
+
+/obj/item/skull/baal_m // male baal
+	name = "horned skull"
+	desc = "Whoever this was seemed to had a pair of horns."
+	icon_state = "skull_ball_m"
+	value = 2
+
+/obj/item/skull/baal_f // female baal
+	name = "horned skull"
+	desc = "Whoever this was seemed to had a pair of horns."
+	icon_state = "skull_ball_f"
+	value = 2
