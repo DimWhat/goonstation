@@ -214,6 +214,7 @@
 			return 0
 
 		var/has_cyberlungs = (human_owner?.organHolder && (human_owner.organHolder.left_lung && human_owner.organHolder.right_lung) && (human_owner.organHolder.left_lung.robotic && human_owner.organHolder.right_lung.robotic)) //gotta prevent null pointers...
+		var/has_baallungs = (human_owner?.organHolder && (human_owner.organHolder.left_lung && human_owner.organHolder.right_lung) && (human_owner.organHolder.left_lung.baal && human_owner.organHolder.right_lung.baal)) //shamelessly copying cyberlung code
 		var/safe_oxygen_min = 17 // Minimum safe partial pressure of O2, in kPa
 		//var/safe_oxygen_max = 140 // Maximum safe partial pressure of O2, in kPa (Not used for now)
 		var/safe_co2_max = 9 // Yes it's an arbitrary value who cares?
@@ -239,6 +240,12 @@
 			safe_oxygen_min = 9
 			safe_co2_max = 18
 			safe_toxins_max = 5		//making it a lot higher than regular, because even doubling the regular value is pitifully low. This is still reasonably low, but it might be noticable
+
+		else if (has_baallungs)
+			safe_oxygen_min = 20
+			safe_co2_max = 8
+			safe_toxins_max = 2
+
 
 		if (O2_pp < safe_oxygen_min) 			// Too little oxygen
 			if (prob(20))
@@ -317,8 +324,8 @@
 		if (human_owner)
 			if (breath.temperature > min(human_owner.organHolder.left_lung ? human_owner.organHolder.left_lung.temp_tolerance : INFINITY, human_owner.organHolder.right_lung ? human_owner.organHolder.right_lung.temp_tolerance : INFINITY) && !human_owner.is_heat_resistant()) // Hot air hurts :(
 				//checks the temperature threshold for each lung, ignoring missing ones. the case of having no lungs is handled in handle_breath.
-				var/lung_burn_left = min(max(breath.temperature - human_owner.organHolder.left_lung?.temp_tolerance, 0) / 3, 10)
-				var/lung_burn_right = min(max(breath.temperature - human_owner.organHolder.right_lung?.temp_tolerance, 0) / 3, 10)
+				var/lung_burn_left = min(max(breath.temperature - human_owner.organHolder.left_lung?.temp_tolerance, 0) / human_owner.organHolder.left_lung?.divide_by, human_owner.organHolder.left_lung?.max_dam)
+				var/lung_burn_right = min(max(breath.temperature - human_owner.organHolder.right_lung?.temp_tolerance, 0) / human_owner.organHolder.right_lung?.divide_by, human_owner.organHolder.right_lung?.max_dam)
 				if (breath.temperature > (human_owner.organHolder.left_lung ? human_owner.organHolder.left_lung.temp_tolerance : INFINITY))
 					human_owner.TakeDamage("chest", 0, (lung_burn_left / 2) + 3, 0, DAMAGE_BURN)
 					if(prob(20))

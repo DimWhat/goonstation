@@ -54,6 +54,7 @@
 	var/robotic = 0
 	var/emagged = 0
 	var/synthetic = 0
+	var/baal = 0
 	var/broken = 0
 	var/failure_disease = null		//The organ failure disease associated with this organ. Not used for Heart atm.
 

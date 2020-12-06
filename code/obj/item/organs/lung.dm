@@ -11,6 +11,8 @@
 	icon_state = "lung_R"
 	failure_disease = /datum/ailment/disease/respiratory_failure
 	var/temp_tolerance = T0C+66
+	var/divide_by = 3 //a dumb dumb didn't realize you gotta define variable values before you can change their value
+	var/max_dam = 10
 
 	on_life(var/mult = 1)
 		if (!..())
@@ -127,6 +129,8 @@
 	edible = 0
 	mats = 6
 	temp_tolerance = T0C+500
+	divide_by = 6
+	max_dam = 5
 	var/overloading = 0
 
 	add_ability(var/datum/abilityHolder/aholder, var/abil)
@@ -191,5 +195,32 @@
 	desc = "Inflating robotic airsack that passes breathed oxygen into a person's blood and expels carbon dioxide back out. This is a right lung, since it has two lobes and a cardiac notch, where the heart would be. Hopefully whoever used to have this one doesn't need it anymore."
 	organ_holder_name = "right_lung"
 	icon_state = "cyber-lung-R"
+	body_side = R_ORGAN
+	failure_disease = /datum/ailment/disease/respiratory_failure/right
+
+/obj/item/organ/lung/baal
+	name = "baal lungs"
+	desc = "Pretty gross baal lungs!"
+	icon_state = "baal_lungs_t"
+	baal = 1
+	temp_tolerance = T0C+300
+	divide_by = 5
+	max_dam = 6
+
+/obj/item/organ/lung/baal/left
+	name = "left lung"
+	organ_name = "baal_lung_L"
+	desc = "Inflating airsack that passes breathed oxygen into a person's blood and expels carbon dioxide back out. This is a left lung, since it has three lobes. It is probably how baal can stand such horrible temperatures. Hopefully whoever used to have this one doesn't need it anymore."
+	organ_holder_name = "left_lung"
+	icon_state = "baal_lung_L"
+	body_side = L_ORGAN
+	failure_disease = /datum/ailment/disease/respiratory_failure/left
+
+/obj/item/organ/lung/baal/right
+	name = "right lung"
+	organ_name = "baal_lung_R"
+	desc = "Inflating airsack that passes breathed oxygen into a person's blood and expels carbon dioxide back out. This is a right lung, since it has two lobes and a cardiac notch, where teh heart would be. It is probably how baal can stand such horrible temperatures. Hopefully whoever used to have this one doesn't need it anymore."
+	organ_holder_name = "right_lung"
+	icon_state = "baal_lung_R"
 	body_side = R_ORGAN
 	failure_disease = /datum/ailment/disease/respiratory_failure/right

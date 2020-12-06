@@ -2047,19 +2047,19 @@
 	icon_state = "baal"
 	jerk = 0
 	override_attack = 0
-	mutant_organs = list("tail" = /obj/item/organ/tail/baal/male)
-	mutant_organs_f = list("tail" = /obj/item/organ/tail/baal/female)
+	mutant_organs = list("tail" = /obj/item/organ/tail/baal/male, "right_lung" = /obj/item/organ/lung/baal/right, "left_lung" = /obj/item/organ/lung/baal/left)
+	mutant_organs_f = list("tail" = /obj/item/organ/tail/baal/female, "right_lung" = /obj/item/organ/lung/baal/right, "left_lung" = /obj/item/organ/lung/baal/left)
 	mutant_folder = 'icons/mob/baal.dmi'
 	special_head = HEAD_BAAL
 	special_head_state = "head_m"
 	special_head_f = HEAD_BAAL_FEMALE
 	special_head_state_f = "head_f"
-	special_hair_1_icon = 'icons/mob/baal.dmi'
-	special_hair_1_state = "horns_m"
-	special_hair_1_color = null
-	special_hair_1_icon_f = 'icons/mob/baal.dmi'
-	special_hair_1_state_f = "horns_f"
-	special_hair_1_color_f = null
+	detail_oversuit_1_icon = 'icons/mob/baal.dmi'
+	detail_oversuit_1_state = "horns_m"
+	detail_oversuit_1_color = null
+	detail_oversuit_1_icon_f = 'icons/mob/baal.dmi'
+	detail_oversuit_1_state_f = "horns_f"
+	detail_oversuit_1_color_f = null
 	r_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/right
 	l_limb_arm_type_mutantrace = /obj/item/parts/human_parts/arm/mutant/baal/left
 	r_limb_leg_type_mutantrace = /obj/item/parts/human_parts/leg/mutant/baal/right
