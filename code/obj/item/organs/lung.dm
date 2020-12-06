@@ -12,7 +12,7 @@
 	failure_disease = /datum/ailment/disease/respiratory_failure
 	var/temp_tolerance = T0C+66
 	var/divide_by = 3 //a dumb dumb didn't realize you gotta define variable values before you can change their value
-	var/max_dam = 10
+	var/max_dam = 10 // maximum damage you can take from spicy air before any of the calculations are done
 
 	on_life(var/mult = 1)
 		if (!..())

@@ -430,4 +430,11 @@
 			else
 				OA.eye_proj = /datum/projectile/laser/eyebeams/left
 		else // just us!
-			aholder.removeAbility(abil)
+			aholder.removeAbility(abil)	
+
+/obj/item/organ/eye/baal
+	name = "baal eye"
+	organ_name = "baal eye"
+	desc = "It's an eye baal! Get it? Heh... a baal is probably blind right now."
+	organ_holder_location = "head"
+	icon_state = "eye-baal"

@@ -241,7 +241,7 @@
 			safe_co2_max = 18
 			safe_toxins_max = 5		//making it a lot higher than regular, because even doubling the regular value is pitifully low. This is still reasonably low, but it might be noticable
 
-		else if (has_baallungs)
+		else if (has_baallungs) // may change to be breath Nitrogen instead of oxygen
 			safe_oxygen_min = 20
 			safe_co2_max = 8
 			safe_toxins_max = 2
@@ -325,6 +325,7 @@
 			if (breath.temperature > min(human_owner.organHolder.left_lung ? human_owner.organHolder.left_lung.temp_tolerance : INFINITY, human_owner.organHolder.right_lung ? human_owner.organHolder.right_lung.temp_tolerance : INFINITY) && !human_owner.is_heat_resistant()) // Hot air hurts :(
 				//checks the temperature threshold for each lung, ignoring missing ones. the case of having no lungs is handled in handle_breath.
 				var/lung_burn_left = min(max(breath.temperature - human_owner.organHolder.left_lung?.temp_tolerance, 0) / human_owner.organHolder.left_lung?.divide_by, human_owner.organHolder.left_lung?.max_dam)
+				// I know it looks messy. Don't questions though
 				var/lung_burn_right = min(max(breath.temperature - human_owner.organHolder.right_lung?.temp_tolerance, 0) / human_owner.organHolder.right_lung?.divide_by, human_owner.organHolder.right_lung?.max_dam)
 				if (breath.temperature > (human_owner.organHolder.left_lung ? human_owner.organHolder.left_lung.temp_tolerance : INFINITY))
 					human_owner.TakeDamage("chest", 0, (lung_burn_left / 2) + 3, 0, DAMAGE_BURN)
