@@ -64,6 +64,7 @@ var/list/admin_verbs = list(
 		/client/proc/cmd_admin_remove_all_labels,
 		/client/proc/cmd_admin_antag_popups,
 		/client/proc/retreat_to_office,
+		/client/proc/summon_office,
 
 		),
 
@@ -1962,11 +1963,13 @@ var/list/fun_images = list()
 /client/proc/vpn_whitelist_add(vpnckey as text)
 	set name = "VPN whitelist add"
 	SET_ADMIN_CAT(ADMIN_CAT_PLAYERS)
+	vpnckey = ckey(vpnckey)
 	try
 		apiHandler.queryAPI("vpncheck-whitelist/add", list("ckey" = vpnckey, "akey" = src.ckey))
 	catch(var/exception/e)
 		message_admins("Error while adding ckey [vpnckey] to the VPN whitelist: [e.name]")
 		return 0
+	global.vpn_ip_checks?.Cut() // to allow them to reconnect this round
 	message_admins("Ckey [vpnckey] added to the VPN whitelist.")
 	logTheThing("admin", null, null, "Ckey [vpnckey] added to the VPN whitelist.")
 	return 1
@@ -1974,6 +1977,7 @@ var/list/fun_images = list()
 /client/proc/vpn_whitelist_remove(vpnckey as text)
 	set name = "VPN whitelist remove"
 	SET_ADMIN_CAT(ADMIN_CAT_PLAYERS)
+	vpnckey = ckey(vpnckey)
 	try
 		apiHandler.queryAPI("vpncheck-whitelist/remove", list("ckey" = vpnckey, "akey" = src.ckey))
 	catch(var/exception/e)
