@@ -472,6 +472,17 @@ datum
 			fluid_b = 120
 			transparency = 255
 
+		disease/plasmaspores // Plasma based Tuberculosis
+			name = "Plasma Spores"
+			id = "plasma spores"
+			description = "Liquid plasma."
+			reagent_state = LIQUID
+			fluid_r = 200
+			fluid_g = 0
+			fluid_b = 200
+			transparency = 45
+			disease = /datum/ailment/disease/plasma_tuberculosis
+
 		// Marquesas' one stop pathology shop
 		blood/pathogen
 			name = "pathogen"

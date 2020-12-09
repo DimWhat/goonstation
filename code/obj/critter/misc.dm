@@ -58,7 +58,7 @@
 	name = "plasma spore"
 	desc = "A barely intelligent colony of organisms. Very volatile."
 	icon_state = "spore"
-	death_text = "%src% ruptures and explodes!"
+	death_text = "%src% ruptures and bursts into a cloud of plasma spores!"
 	density = 1
 	health = 1
 	aggressive = 0
@@ -71,19 +71,21 @@
 	brutevuln = 2
 	flying = 1
 
+	New()
+		..()
+
+		src.create_reagents(50)
+
+		SPAWN_DBG(4 SECONDS)
+
+			if(reagents && !reagents.total_volume)
+				reagents.add_reagent("plasma spores", 30)
+
 	CritterDeath()
 		..()
-		var/turf/T = get_turf(src.loc)
-		if(T)
-			T.hotspot_expose(700,125)
-			explosion(src, T, -1, -1, 2, 3)
+		var/datum/chemical_reaction/smoke/thesmoke = new
+		thesmoke.on_reaction(src.reagents, 12)
 		qdel (src)
-
-	ex_act(severity)
-		CritterDeath()
-
-	bullet_act(flag, A as obj)
-		CritterDeath()
 
 /obj/critter/mimic
 	name = "mechanical toolbox"
