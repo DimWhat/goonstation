@@ -82,7 +82,7 @@
 							items += /obj/item/reagent_containers/hypospray
 							item_amounts += 1
 						if(3)
-							items += pick(/obj/critter/spore)
+							items += pick(/obj/critter/plasmaspore)
 							item_amounts += 3
 						else
 							items += /obj/item/reagent_containers/glass/happyplant

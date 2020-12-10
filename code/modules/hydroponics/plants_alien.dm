@@ -175,10 +175,10 @@ ABSTRACT_TYPE(/datum/plant/artifact)
 	endurance = 20
 	assoc_reagents = list("omnizine")
 
-/datum/plant/artifact/plasma
-	name = "Plasma"
+/datum/plant/artifact/plasmaspore
+	name = "plasma spore"
 	override_icon_state = "Plasma"
-	crop = /obj/critter/spore
+	crop = /obj/critter/plasmaspore
 	unique_seed = /obj/item/seed/alien/plasma
 	starthealth = 20
 	growtime = 180
