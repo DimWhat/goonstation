@@ -54,7 +54,7 @@
 		..()
 
 
-/obj/critter/spore
+/obj/critter/plasmaspore
 	name = "plasma spore"
 	desc = "A barely intelligent colony of organisms. Very volatile."
 	icon_state = "spore"
