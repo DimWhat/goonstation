@@ -863,6 +863,7 @@ var/datum/preMapLoad/preMapLoad = new
 #include "code\modules\medical\diseases\necrotic_degeneration.dm"
 #include "code\modules\medical\diseases\panacaea.dm"
 #include "code\modules\medical\diseases\parasites.dm"
+#include "code\modules\medical\diseases\plasma_tuberculosis.dm"
 #include "code\modules\medical\diseases\plasmatoid.dm"
 #include "code\modules\medical\diseases\robotic_transformation.dm"
 #include "code\modules\medical\diseases\space_madness.dm"

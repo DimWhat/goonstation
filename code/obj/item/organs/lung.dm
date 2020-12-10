@@ -28,6 +28,10 @@
 		if (src.robotic)
 			src.donor.add_stam_mod_regen(icon_state, 2)
 			src.donor.add_stam_mod_max(icon_state, 10)
+		if (src.spore)
+			src.donor.add_stam_mod_regen(icon_state, -1.5) //people with plasma spore lungs are gonna hate having plasma spore lungs... like they should!
+			src.donor.add_stam_mod_max(icon_state, -30)
+
 		return
 
 	on_removal()
@@ -193,3 +197,30 @@
 	icon_state = "cyber-lung-R"
 	body_side = R_ORGAN
 	failure_disease = /datum/ailment/disease/respiratory_failure/right
+
+/obj/item/organ/lung/plasmaspore //from plasma tuberculosis
+	name = "plasma spores"
+	desc = "A barely intelligent colony of orga- wait a minute. That's somebody's lungs!"
+	icon_state = "spore_lungs_t"
+	made_from = "plasmastone"
+	mats = 6
+	spore = 1
+	temp_tolerance = T0C+66
+
+/obj/item/organ/lung/plasmaspore/left
+	name = "left lung"
+	desc = "This is a lung that has been infested with plasma spores. This is probably a left lung, the three lobes are barely recognizable. Whoever had this certainly is thankful it's out of them."
+	organ_name = "spore_lung_L"
+	organ_holder_name = "left_lung"
+	icon_state = "spore_lung_L"
+	body_side = L_ORGAN
+	failure_disease = null
+
+/obj/item/organ/lung/plasmaspore/right
+	name = "right lung"
+	desc = "This is a lung that has been infested with plasma spores. This is probably a right lung, the two lobes and a cardiac notch, where the heart would be are barely recognizable. Whoever had this certainly is thankful it's out of them."
+	organ_name = "spore_lung_R"
+	organ_holder_name = "right_lung"
+	icon_state = "spore_lung_R"
+	body_side = R_ORGAN
+	failure_disease = null
