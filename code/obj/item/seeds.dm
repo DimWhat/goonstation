@@ -176,7 +176,7 @@
 				if (3) src.planttype = HY_get_species_from_path(/datum/plant/artifact/rocks, src)
 				if (4) src.planttype = HY_get_species_from_path(/datum/plant/artifact/litelotus, src)
 				if (5) src.planttype = HY_get_species_from_path(/datum/plant/artifact/peeker, src)
-				if (6) src.planttype = HY_get_species_from_path(/datum/plant/artifact/plasma, src)
+				if (6) src.planttype = HY_get_species_from_path(/datum/plant/artifact/plasmaspore, src)
 				if (7) src.planttype = HY_get_species_from_path(/datum/plant/artifact/goldfish, src)
 				if (8) src.planttype = HY_get_species_from_path(/datum/plant/artifact/cat, src)
 
@@ -209,10 +209,10 @@
 		..()
 		src.planttype = HY_get_species_from_path(/datum/plant/artifact/peeker, src)
 
-/obj/item/seed/alien/plasma
+/obj/item/seed/alien/plasmaspore
 	gen_plant_type()
 		..()
-		src.planttype = HY_get_species_from_path(/datum/plant/artifact/plasma, src)
+		src.planttype = HY_get_species_from_path(/datum/plant/artifact/plasmaspore, src)
 
 /obj/item/seed/alien/goldfish
 	gen_plant_type()

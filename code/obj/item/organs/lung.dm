@@ -198,14 +198,21 @@
 	body_side = R_ORGAN
 	failure_disease = /datum/ailment/disease/respiratory_failure/right
 
-/obj/item/organ/lung/plasmaspore //from plasma tuberculosis
+/obj/item/organ/lung/plasmaspore // gotten from plasma tuberculosis
 	name = "plasma spores"
 	desc = "A barely intelligent colony of orga- wait a minute. That's somebody's lungs!"
 	icon_state = "spore_lungs_t"
-	made_from = "plasmastone"
+	made_from = "plasmastone" //it's made of plasma!
 	mats = 6
 	spore = 1
 	temp_tolerance = T0C+66
+
+	on_life(var/mult = 1)
+		if (!..())
+			return 0
+		if (src.get_damage() < FAIL_DAMAGE && prob(percentmult(5, mult)))
+			var/reagID = pick("plasma spores", "plasma")
+			donor.reagents.add_reagent(reagID, reagID == "plasma" ? 1 :3)
 
 /obj/item/organ/lung/plasmaspore/left
 	name = "left lung"
