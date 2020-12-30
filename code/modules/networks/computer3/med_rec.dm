@@ -601,6 +601,18 @@
 						Do not attempt to reason with infected persons.<br>
 						<br><b>Severity:</b> Major"}
 
+					if ("10")
+						entrydat = {"<b>Name:</b> Plasmosis
+						<br><b>Number of Stages:</b> 5
+						<br><b>Spread:</b> Plasma Spores
+						<br><b>Possible Cure:</b> Atrazine
+						<br><b>Affected Species:</b> Human
+						<br>
+						<br><b>Notes:</b> This deisease is initiated by plasma spores taking refuge in a victim's lungs.
+						If the disease is left untreated lung infestation may occur.
+						Full lung removal may be neccessary to prevent further infections.
+						<br><b>Severity:</b> Major"}
+
 					else
 
 						return
@@ -642,6 +654,7 @@
 					(07) Robot Transformation<br>
 					(08) Teleportitis<br>
 					(09) Berserker<br>
+					(10) Plasmosis<br>
 					Enter virus number or 0 to return."}
 
 			return dat

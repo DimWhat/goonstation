@@ -475,8 +475,9 @@ datum
 		disease/plasmaspores // Plasma based Tuberculosis
 			name = "Plasma Spores"
 			id = "plasma spores"
-			description = "Liquid plasma."
+			description = "A stringy collection of spores."
 			reagent_state = LIQUID
+			taste = "like it's moving"
 			fluid_r = 200
 			fluid_g = 0
 			fluid_b = 200
