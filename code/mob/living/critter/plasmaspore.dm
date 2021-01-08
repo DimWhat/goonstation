@@ -7,7 +7,7 @@
 	custom_gib_handler = /proc/gibs
 	hand_count = 0
 	can_throw = 0
-	blood_id = "plasma"
+	blood_id = "plasma spores"
 
 	death(var/gibbed)
 		src.visible_message("<b>[src]</b> ruptures and explodes!")

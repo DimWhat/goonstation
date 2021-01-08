@@ -75,7 +75,7 @@
 			if (was_eaten && prob(15))
 				horror_path = /obj/critter/blobman/meaty_martha
 		else
-			horror_path = pick(/obj/critter/killertomato, /obj/critter/plasmaspore, /obj/critter/zombie, /obj/critter/martian/warrior, /obj/machinery/bot/firebot/emagged, /obj/machinery/bot/secbot/emagged, /obj/machinery/bot/medbot/mysterious/emagged, /obj/machinery/bot/cleanbot/emagged)
+			horror_path = pick(/obj/critter/killertomato, /mob/living/critter/plasmaspore, /obj/critter/zombie, /obj/critter/martian/warrior, /obj/machinery/bot/firebot/emagged, /obj/machinery/bot/secbot/emagged, /obj/machinery/bot/medbot/mysterious/emagged, /obj/machinery/bot/cleanbot/emagged)
 		var/obj/horror = new horror_path(src.loc)
 		src.visible_message("<span class='alert'><b>[horror] emerges from the [src]!</b></span>","<span class='alert'>You hear a sharp buzzing noise.</span>")
 		SPAWN_DBG(20 SECONDS)

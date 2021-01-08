@@ -7,3 +7,5 @@
 	affected_species = list("Human")
 	reagentcure = list("weedkiller")
 	stage_prob = 4
+
+/datum

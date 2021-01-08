@@ -604,11 +604,11 @@
 					if ("10")
 						entrydat = {"<b>Name:</b> Plasmosis
 						<br><b>Number of Stages:</b> 5
-						<br><b>Spread:</b> Plasma Spores
+						<br><b>Spread:</b> Crepitus globum
 						<br><b>Possible Cure:</b> Atrazine
 						<br><b>Affected Species:</b> Human
 						<br>
-						<br><b>Notes:</b> This deisease is initiated by plasma spores taking refuge in a victim's lungs.
+						<br><b>Notes:</b> This disease is initiated by Crepitus globum (also known as "plasma spores") taking refuge in a victim's lungs.
 						If the disease is left untreated lung infestation may occur.
 						Full lung removal may be neccessary to prevent further infections.
 						<br><b>Severity:</b> Major"}
