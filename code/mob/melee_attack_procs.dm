@@ -757,7 +757,8 @@
 			else
 				user.visible_message("<span class='alert'><B>[user] pounds on [BORG.name]'s head furiously!</B></span>")
 				playsound(user.loc, "sound/impact_sounds/Metal_Clang_3.ogg", 50, 1)
-				BORG.part_head.ropart_take_damage(rand(20,40),0)
+				if (BORG.part_head.ropart_take_damage(rand(20,40),0) == 1)
+					BORG.compborg_lose_limb(BORG.part_head)
 				if (!BORG.anchored && prob(30))
 					user.visible_message("<span class='alert'><B>...and sends them flying!</B></span>")
 					send_flying = 2
@@ -1080,7 +1081,7 @@
 			hit_chance = 90
 		else if (def_zone == "head")
 			hit_chance = 70
-		if(!client || stat || getStatusDuration("paralysis") || getStatusDuration("stunned") || getStatusDuration("weakened"))
+		if(!client || is_incapacitated(src))
 			hit_chance = 100
 		if (!prob(hit_chance))
 			playsound(loc, "sound/impact_sounds/Generic_Swing_1.ogg", 50, 1, 1)

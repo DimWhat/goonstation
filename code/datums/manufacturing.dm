@@ -1492,7 +1492,7 @@ proc/get_nice_mat_name_for_manufacturers(mat)
 
 
 // Mining Gear
-
+#ifndef UNDERWATER_MAP
 /datum/manufacture/mining_magnet
 	name = "Mining Magnet Replacement Parts"
 	item_paths = list("DEN-1","MET-3","CON-2")
@@ -1501,6 +1501,7 @@ proc/get_nice_mat_name_for_manufacturers(mat)
 	time = 120 SECONDS
 	create = 1
 	category = "Component"
+#endif
 
 /datum/manufacture/pick
 	name = "Pickaxe"
@@ -2357,6 +2358,18 @@ proc/get_nice_mat_name_for_manufacturers(mat)
 	time = 10 SECONDS
 	create = 1
 	category = "Tool"
+
+//// deployable warp beacon
+
+/datum/manufacture/beaconkit
+	name = "Warp Beacon Frame"
+	item_paths = list("CRY-1","CON-1","MET-2")
+	item_names = list("Crystal","Conductive Material","Sturdy Metal")
+	item_amounts = list(10,10,10)
+	item_outputs = list(/obj/beaconkit)
+	time = 30 SECONDS
+	create = 1
+	category = "Machinery"
 
 
 /******************** HOP *******************/
